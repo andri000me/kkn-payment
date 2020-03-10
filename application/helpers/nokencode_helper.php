@@ -140,12 +140,18 @@ if (! function_exists('money')) {
 if (!function_exists('hitung')){
 	function hitung($tb=null,$sts_param=null,$sts=null){
 		$CI =& get_instance();
-		if($sts==null||$sts==''){
-			return $CI->db->get($tb)->num_rows();
-		}elseif($tb=='mahasiswa'){
-			return $CI->db->get_where($tb,[$sts_param=>$sts,'status<>'=>'Selesai'])->num_rows();
+		if($tb=='mahasiswa'){
+			if($sts==null||$sts==''){
+				return $CI->db->get_where($tb,['status<>'=>'Selesai'])->num_rows();
+			}else{
+				return $CI->db->get_where($tb,[$sts_param=>$sts,'status<>'=>'Selesai'])->num_rows();
+			}
 		}else{
-			return $CI->db->get_where($tb,[$sts_param=>$sts])->num_rows();
+			if($sts==null||$sts==''){
+				return $CI->db->get($tb)->num_rows();
+			}else{
+				return $CI->db->get_where($tb,[$sts_param=>$sts])->num_rows();
+			}
 		}
 	}
 }

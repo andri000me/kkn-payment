@@ -235,7 +235,7 @@ $(document).ready(function() {
         <a href="#" class="btn btn-sm btn-primary btn-flat" data-target="#modal-add" data-toggle="modal"
             onclick="submit('add')"><i class="fa fa-plus"></i>
             Add New</a>
-        <a href="<?=base_url('pembayaran');?>" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip"
+        <a href="<?=base_url('settings/information');?>" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip"
             data-placement="top" title="Refresh"><i class="fa fa-refresh"></i></a>
     </ol>
 </section>
@@ -325,7 +325,7 @@ $(document).ready(function() {
                                 <label>Nama Informasi<span style="color:red;">*</span></label>
                                 <input type="hidden" class="form-control" name="idinfo">
                                 <input type="text" class="form-control" name="info_nama"
-                                    placeholder="ex: Rekening Bank BRI">
+                                    placeholder="ex: Batas Akhir Pembayaran">
                             </div>
                         </div>
                         <div class="col-md-12">

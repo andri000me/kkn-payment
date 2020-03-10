@@ -60,7 +60,7 @@ function changeStatus(x) {
                         <td>
                             <?=$m->nama_lengkap;?>
                             <hr style="padding:0px;margin:0px;border:0.5px dashed">
-                            <?=$m->jk;?>
+                            <?=$m->jk=='L'?'Laki-Laki':'Perempuan';?>
                         </td>
                         <td>
                             <?=$m->jenjang;?>
