@@ -18,6 +18,7 @@ class Public_m extends CI_Model {
 		return $this->db->get_where('pembayaran',['mahasiswa_id'=>$id]);
 	}
 	public function getAllInfo(){
+		$this->db->order_by('idinfo', 'desc');
 		return $this->db->get('informasi')->result();
 	}
 
