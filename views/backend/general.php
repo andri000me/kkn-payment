@@ -87,44 +87,6 @@ function changeStatus(x) {
         }
     });
 }
-$(function() {
-
-    $('#delete_permanen_all').click(function() {
-        $('#modal_delete').modal('show', {
-            backdrop: 'static',
-            keyboard: false
-        });
-        $('#deleted').click(function() {
-            var delete_check = $('.check:checked');
-            if (delete_check.length > 0) {
-                var delete_value = [];
-                $(delete_check).each(function() {
-                    delete_value.push($(this).val());
-                });
-
-                $.ajax({
-                    type: 'post',
-                    url: '<?=base_url();?>category/delete',
-                    data: {
-                        idx: delete_value
-                    },
-                    success: function() {
-                        $('#modal_delete').modal('hide');
-                        toastr.success("Deleted Permanentelly Successfully");
-                        setTimeout(() => {
-                            window.location =
-                                "<?=site_url();?>category";
-                        }, 2500);
-                    }
-                })
-            } else {
-                $('#modal_delete').modal('hide');
-                toastr.warning("Please Select Data To Delete Permanentelly !");
-            }
-        })
-    });
-
-})
 </script>
 <!-- Content Header (Page header) -->
 <?php if ($this->session->userdata('access') === 'super_user'||$this->session->userdata('access') === 'administrator'): ?>
