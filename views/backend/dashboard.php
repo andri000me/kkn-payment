@@ -134,9 +134,10 @@
                         <span
                             class="label <?= $row->status_bayar=='Belum Bayar'?'label-warning':'label-success';?>"><?=$row->status_bayar;?></span>
                     </td>
-                    <td><a href="<?=base_url('konfirmasi_pembayaran/');?><?=enc_url($row->idmahasiswa);?>"
-                            class="btn btn-primary btn-xs"
-                            <?=$row->status_bayar=='Sudah Bayar'?'disabled':'';?>>Konfirmasi</a>
+                    <td>
+                        <a href="<?=base_url('konfirmasi_pembayaran/');?><?=enc_url($row->idmahasiswa);?>"
+                            class="btn btn-primary btn-xs">
+                            <?=$row->status_bayar=='Sudah Bayar'?'Lihat':'Konfirmasi';?></a>
                     </td>
                 </tr>
                 <?php else:?>

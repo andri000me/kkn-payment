@@ -76,6 +76,15 @@
 
 
         <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;color:black;">
+                    Anda dapat melakukan konfirmasi langsung melalui <b>Admin :
+                        <?=settings('general','admin_contact');?></b> dengan format : <br>
+                    via SMS : <b>CONFIRM #NIM #JUMLAH TRANSFER #TANGGAL TRANSFER</b> (Contoh :
+                    CONFIRM #201552001 #1000000 #21/04/2020) <br>
+                    via WA : Kirim bukti transfer dengan mencantumkan NIM anda.
+                </p>
+            </div>
             <?php foreach(norek() as $i):?>
             <div class="col-md-3">
                 <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;" id="info_rekening">
@@ -93,10 +102,11 @@
             <div class="col-xs-12">
                 <a href="<?=base_url('dashboard');?>" class="btn btn-default btn-sm btn-flat"><i
                         class="fa fa-reply"></i> Kembali</a>
-                <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right" style="margin-right: 5px;"
-                    <?=$verifikasi->num_rows()>0?'disabled':'';?>>
-                    <i class="fa fa-edit"></i> Verifikasi Pembayaran
+                <?php if($verifikasi->num_rows()==0):?>
+                <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right" style="margin-right: 5px;">
+                    <i class="fa fa-edit"></i> Konfirmasi Pembayaran
                 </button>
+                <?php endif ?>
             </div>
         </div>
     </form>

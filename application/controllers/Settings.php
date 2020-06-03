@@ -55,6 +55,9 @@ class Settings extends CI_Controller {
 	}
 	public function addRek(){
 		if($this->validationRek()){
+			$datarek = $this->dataRek();
+			$datarek['create_at'] = get_dateTime();
+			$datarek['create_by'] = user()['idusers'];
 			$this->m->addNewRek($this->dataRek());
 			$this->toastr->success('Add New Successfully');
 		}else{
@@ -64,11 +67,8 @@ class Settings extends CI_Controller {
 	public function editRek(){
 		if($this->validationRek()){
 			$datarek = $this->dataRek();
-			var_dump($datarek);die;
-			$datarek = [
-				"updated_at" => get_dateTime(),
-				"updated_by" => user()['idusers']
-			];
+			$datarek['update_at'] = get_dateTime();
+			$datarek['update_by'] = user()['idusers'];
 			$this->m->editRek($this->input->post('id'),$datarek);
 			$this->toastr->success('Updated Successfully');
 		}else{
@@ -223,9 +223,7 @@ class Settings extends CI_Controller {
 		return [
 			'rek_bank'=>$this->input->post('rek_bank', true),
 			'rek_nama'=>$this->input->post('rek_nama', true),
-			'rek_nomor'=>$this->input->post('rek_nomor', true),
-			'create_at'=>get_dateTime(),
-			'create_by'=>user()['idusers']
+			'rek_nomor'=>$this->input->post('rek_nomor', true)
 		];
 	}
 	/**

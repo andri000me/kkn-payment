@@ -210,7 +210,7 @@
                                         </div>
                                         <div class="pull-right">
                                             <a href="<?=base_url('auth/logout');?>"
-                                                class="btn btn-danger btn-flat">Keluar</a>
+                                                class="btn btn-default btn-flat">Keluar</a>
                                         </div>
                                     </li>
                                 </ul>
