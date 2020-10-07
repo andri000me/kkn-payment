@@ -151,8 +151,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i>
                                     Pengaturan <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li <?=isset($general) ? 'class="active"':'';?>><a
-                                            href="<?=base_url('settings');?>">Umum</a></li>
+                                    <!-- <li <?=isset($general) ? 'class="active"':'';?>><a
+                                            href="<?=base_url('settings');?>">Umum</a></li> -->
                                     <li <?=isset($information) ? 'class="active"':'';?>><a
                                             href="<?=base_url('settings/information');?>">Informasi</a></li>
                                     <li <?=isset($pengguna) ? 'class="active"':'';?>><a

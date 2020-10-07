@@ -27,6 +27,15 @@ class Mahasiswa extends CI_Controller {
 		$data['content'] = 'backend/import';
 		$this->load->view('index', $data);
 	}
+	public function export()
+	{
+		$tahun = $this->input->post('tahun',true);
+		$data = [
+			'data' => $this->m->getAllSelesai($tahun),
+			'tahun' => $tahun
+		];
+		$this->load->view('backend/export',$data);
+	}
 	public function add(){
 		if($this->validation()){
 			$this->m->addNew($this->data());

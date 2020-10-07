@@ -204,8 +204,8 @@ $(function() {
             Add New</a>
         <a href="<?=base_url('mahasiswa/import');?>" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip"
             data-placement="top" title="Import Excel"><i class="fa fa-file-excel-o"></i></a>
-        <a href="#" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip" data-placement="top" title="Selesai"
-            id="selesai_all"><i class="fa fa-check"></i></a>
+        <a href="#" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip" data-placement="top"
+            title="Selesai KKN" id="selesai_all"><i class="fa fa-check"></i></a>
         <a href="#" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip" data-placement="top" title="Delete"
             id="delete_all"><i class="fa fa-recycle"></i></a>
         <a href="#" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip" data-placement="top"
@@ -214,6 +214,8 @@ $(function() {
             id="restore_all"><i class="fa fa-history"></i></a>
         <a href="<?=base_url('mahasiswa');?>" class="btn btn-sm btn-primary btn-flat" data-toggle="tooltip"
             data-placement="top" title="Refresh"><i class="fa fa-refresh"></i></a>
+        <a href="#" class="btn btn-sm btn-primary btn-flat" data-toggle="modal" data-target="#modal_laporan"><i
+                class="fa fa-file-excel-o"></i> Laporan</a>
     </ol>
 </section>
 <?php endif;?>
@@ -376,6 +378,35 @@ $(function() {
                 <button class="btn btn-sm btn-default btn-flat" data-dismiss="modal">Cancel</button>
                 <button class="btn btn-sm btn-success btn-flat" id="selesai">Yes, Selesai</button>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Modal laporan -->
+<div class="modal fade" id="modal_laporan" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="<?=base_url('mahasiswa/export');?>" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Export Laporan</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Pilih Tahun </label>
+                        <select name="tahun" class="form-control select2" style="width:100%">
+                            <?php foreach(tahun() as $thn):?>
+                            <option value="<?= $thn; ?>"><?= $thn; ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-default btn-flat pull-left" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-sm btn-success btn-flat pull-right" type="submit"><i
+                            class="fa fa-file-excel-o"></i> Export</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

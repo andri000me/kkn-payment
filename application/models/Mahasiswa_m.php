@@ -22,6 +22,11 @@ class Mahasiswa_m extends CI_Model {
 		$this->db->order_by(self::$pk, 'desc');
 		return $this->db->get_where(self::$table,['status <>'=>'Selesai'])->result();
 	}
+	public function getAllSelesai($tahun)
+	{
+		$this->db->order_by(self::$pk, 'desc');
+		return $this->db->get_where(self::$table,['status'=>'Selesai','year(FROM_UNIXTIME(update_at))'=>$tahun]);
+	}
 	public function isValExist($nim)
 	{
 		return $this->db->get_where(self::$table,['nim'=>$nim])->row();

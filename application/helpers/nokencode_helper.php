@@ -132,6 +132,13 @@ if (! function_exists('money')) {
 		return number_format($str,0,',','.');
 	}
 }
+
+if (! function_exists('tahun')) {
+	function tahun() {
+		return [2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030];
+	}
+}
+
 /**
 * Count
 * @param String
